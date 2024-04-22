@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+    <h1>학생 전체 조회하기👩🏻‍💻👩🏻‍💻👩🏻‍💻</h1>
+    <table>
+        <tr>
+            <th>학생번호</th>
+            <th>학생이름</th>
+            <th>전화번호</th>
+            <th>학년</th>
+            <th>비밀번호</th>
+            <th>재학상태</th>
+            <th>전공학과</th>
+            <th>지도교수</th>
+        </tr>
+        <tr th:each="student : ${studentList}">
+            <td th:text="${student.studentCode}"></td>
+            <td th:text="${student.studentName}"></td>
+            <td th:text="${student.studentPhone}"></td>
+            <td th:text="${student.studentGrade}"></td>
+            <td th:text="${student.password}"></td>
+            <td th:text="${student.studentStatus}"></td>
+            <td th:text="${student.majorSubject}"></td>
+            <td th:text="${student.tutorProfessor}"></td>
+        </tr>
+    </table>
+    <div id="paging" >
+        <!-- 맨 앞으로 이동 -->
+        <button
+                th:onclick="'location.href='/student/list?page=' + @{${paging.startPage}} + '''">
+            <<
+        </button>
+        <!-- 이전 페이지로 이동 -->
+        <button th:onclick="'location.href='/student/list?page=' + @{${paging.currentPage - 1}} + '''" th:disabled="${ studentList.first }">
+            <
+        </button>
+        <!-- 숫자 버튼 -->
+        <th:block th:each="page : ${ #numbers.sequence(paging.startPage,
+            paging.endPage)}">
+            <button th:onclick="'location.href='/student/list?page=' + @{${page}} + '''" th:text="${ page }" th:disabled="${ paging.currentPage eq page }">
+            </button>
+        </th:block>
+
+        <!-- 다음 페이지로 이동 -->
+        <button
+                th:onclick="'location.href='/menu/list?page=' + @{${paging.currentPage + 1}} + '''"
+                th:disabled="${ studentList.last }">
+            >
+        </button>
+        <!-- 맨 끝으로 이동 -->
+        <button
+                th:onclick="'location.href='/student/list?page=' + @{${paging.endPage}} + '''">
+            >>
+        </button>
+    </div>
+</body>
+</html>

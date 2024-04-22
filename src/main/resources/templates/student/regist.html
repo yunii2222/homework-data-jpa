@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regist</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<h1>학생 등록하기👩🏻‍💻</h1>
+<form action="/student/regist" method="post">
+    <div>
+        <label>학생 이름 : </label><input type="text" name="studentName">
+    </div><br>
+    <div>
+        <label>학생 전화번호 : </label><input type="text" name="studentPhone">
+    </div><br>
+    <div>
+        <label>학년 : </label><input type="number" name="studentGrade">
+    </div><br>
+    <div>
+        <label>비밀번호 : </label><input type="text" name="password">
+    </div><br>
+    <div>
+        <label>재학 상태 : </label>
+        <select name="studentStatus">
+            <option value="E">재학중</option>
+            <option value="T">휴학</option>
+            <option value="G">졸업</option>
+            <option value="O">퇴학</option>
+        </select>
+    </div><br>
+    <div>
+        <label>전공 학과 : </label><input type="text" name="majorSubject">
+    </div><br>
+    <div>
+        <label>지도 교수 : </label><input type="text" name="tutorProfessor">
+    </div><br>
+    <input type="submit" value="학생 추가">
+</form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>modify</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <h1>학생 이름 수정하기👩🏻‍💻</h1>
+    <form action="/student/modify" method="post">
+        <div>
+            <label>수정할 학생 코드 : </label><input type="number" name="studentCode">
+        </div><br>
+        <div>
+            <label>수정할 학생 이름: </label><input type="text" name="studentName">
+        </div><br>
+        <input type="submit" value="수정하기">
+    </form>
+</body>
+<style>
+    label {
+        width: 160px;
+    }
+</style>
+</html>
